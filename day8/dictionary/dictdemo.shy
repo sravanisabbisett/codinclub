@@ -1,0 +1,25 @@
+#!/bin/bash -x
+
+
+
+declare -a dice=()
+
+
+count=0
+valid=True
+while [ $valid ]
+do
+	var=$(( RANDOM%6+1 ))
+	dice+=($var)
+	if [ $var -eq 2 ]
+	then
+		count=$(( $count+1 ))
+	fi
+	if [ $count -eq 10 ]
+	then
+		break
+	fi
+done
+
+
+echo ${dice[@]}
